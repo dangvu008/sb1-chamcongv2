@@ -1,0 +1,13 @@
+<ActionBar title="Settings">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <Button text="Interface Settings" (tap)="navigateTo('/settings/interface')" class="btn btn-primary m-b-10"></Button>
+    <Button text="Clocking Profile Settings" (tap)="navigateTo('/settings/clocking-profile')" class="btn btn-primary m-b-10"></Button>
+    <Button text="Schedule Settings" (tap)="navigateTo('/settings/schedule')" class="btn btn-primary m-b-10"></Button>
+    <Button text="Salary Calculation Formula" (tap)="navigateTo('/settings/salary-calculation')" class="btn btn-primary m-b-10"></Button>
+    <Button text="Notification Settings" (tap)="navigateTo('/settings/notification')" class="btn btn-primary m-b-10"></Button>
+  </StackLayout>
+</ScrollView>

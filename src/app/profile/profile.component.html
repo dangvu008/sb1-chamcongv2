@@ -1,0 +1,26 @@
+<ActionBar title="Clocking Profiles">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<GridLayout rows="auto, *" class="p-4">
+  <Button row="0" text="Create New Profile" (tap)="createProfile()" class="btn btn-primary m-b-10"></Button>
+  
+  <ListView row="1" [items]="profiles" class="list-group">
+    <ng-template let-profile="item">
+      <GridLayout columns="*, auto, auto" class="list-group-item">
+        <Label [text]="profile.name" col="0"></Label>
+        <Button text="Edit" col="1" (tap)="editProfile(profile)" class="btn btn-sm btn-outline"></Button>
+        <Button text="Delete" col="2" (tap)="deleteProfile(profile)" class="btn btn-sm btn-outline"></Button>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>
+
+<StackLayout *ngIf="selectedProfile" class="p-4">
+  <TextField [(ngModel)]="selectedProfile.name" hint="Profile Name" class="input m-b-10"></TextField>
+  <TextField [(ngModel)]="selectedProfile.location" hint="Work Location" class="input m-b-10"></TextField>
+  <TimePicker [(ngModel)]="selectedProfile.startTime" hint="Start Time for Leaving Home"></TimePicker>
+  <TimePicker [(ngModel)]="selectedProfile.clockInTime" hint="Clock-in Time"></TimePicker>
+  <TimePicker [(ngModel)]="selectedProfile.clockOutTime" hint="Clock-out Time"></TimePicker>
+  <Button text="Save Profile" (tap)="saveProfile()" class="btn btn-primary m-t-10"></Button>
+</StackLayout>

@@ -1,0 +1,32 @@
+<ActionBar title="Notification Settings">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <GridLayout rows="auto, auto" columns="*, auto" class="m-b-10">
+      <Label row="0" col="0" text="Enable Notifications"></Label>
+      <Switch row="0" col="1" [(ngModel)]="enableNotifications" (checkedChange)="onEnableNotificationsChange($event)"></Switch>
+    </GridLayout>
+
+    <StackLayout *ngIf="enableNotifications">
+      <GridLayout rows="auto, auto" columns="*, auto" class="m-b-10">
+        <Label row="0" col="0" text="Sound"></Label>
+        <Switch row="0" col="1" [(ngModel)]="enableSound" (checkedChange)="onSoundChange($event)"></Switch>
+      </GridLayout>
+
+      <GridLayout rows="auto, auto" columns="*, auto" class="m-b-10">
+        <Label row="0" col="0" text="Vibration"></Label>
+        <Switch row="0" col="1" [(ngModel)]="enableVibration" (checkedChange)="onVibrationChange($event)"></Switch>
+      </GridLayout>
+
+      <Label text="Reminder Time Before Clock-in" class="h2 m-t-10 m-b-10"></Label>
+      <ListPicker [items]="reminderTimes" [(ngModel)]="selectedReminderTime" (selectedIndexChange)="onReminderTimeChange($event)" class="m-b-10"></ListPicker>
+
+      <Label text="Reminder Time Before Clock-out" class="h2 m-t-10 m-b-10"></Label>
+      <ListPicker [items]="reminderTimes" [(ngModel)]="selectedClockOutReminderTime" (selectedIndexChange)="onClockOutReminderTimeChange($event)" class="m-b-10"></ListPicker>
+    </StackLayout>
+
+    <Button text="Save Notification Settings" (tap)="saveNotificationSettings()" class="btn btn-primary m-t-20"></Button>
+  </StackLayout>
+</ScrollView>

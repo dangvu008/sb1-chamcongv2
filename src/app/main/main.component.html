@@ -1,0 +1,13 @@
+<ActionBar title="TimeTrack Pro"></ActionBar>
+
+<GridLayout rows="*, auto" columns="*" class="p-4">
+  <StackLayout row="0" verticalAlignment="center">
+    <Button [text]="isClockedIn ? 'Clock Out' : 'Clock In'" (tap)="toggleClock()" class="btn btn-primary btn-rounded-lg"></Button>
+  </StackLayout>
+
+  <GridLayout row="1" columns="*, *, *" class="navigation-icons">
+    <Label col="0" text="&#xf201;" class="fas" (tap)="navigateTo('/statistics')"></Label>
+    <Label col="1" text="&#xf007;" class="fas" (tap)="navigateTo('/profile')"></Label>
+    <Label col="2" text="&#xf002;" class="fas" (tap)="navigateTo('/search')"></Label>
+  </GridLayout>
+</GridLayout>

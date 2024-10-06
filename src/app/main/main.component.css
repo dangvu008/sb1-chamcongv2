@@ -1,0 +1,15 @@
+.navigation-icons {
+  font-size: 24;
+  padding: 10;
+}
+
+.fas {
+  font-family: "Font Awesome 5 Free", "fa-solid-900";
+  font-weight: 900;
+}
+
+.btn-rounded-lg {
+  border-radius: 20;
+  height: 80;
+  font-size: 24;
+}
